@@ -12,6 +12,7 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
   app.setGlobalPrefix('v1/api');
+
   const options = new DocumentBuilder()
     .setTitle('Sample API')
     .setDescription('Sample API with NestJS')
@@ -20,8 +21,9 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('v1/api/docs', app, document);
-  await app.listen(3000);
-  console.log('Listen on http://localhost:3000/v1/api');
-  console.log('Swagger on http://localhost:3000/v1/api/docs');
+
+  await app.listen(process.env.PORT);
+  console.log(`Listen on http://localhost:${process.env.PORT}/v1/api`);
+  console.log(`Swagger on http://localhost:${process.env.PORT}/v1/api/docs`);
 }
 bootstrap();
