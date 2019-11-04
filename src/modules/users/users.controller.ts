@@ -7,7 +7,7 @@ import { User } from './user.entity';
 @Crud({
   model: { type: User },
   routes: {
-    replaceOneBase: {
+    getManyBase: {
       decorators: [UseGuards(AuthGuard('jwt'))],
     },
   },

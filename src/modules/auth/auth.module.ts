@@ -7,13 +7,15 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { EasyconfigModule } from 'nestjs-easyconfig';
 import { JwtStrategy } from './jwt.strategy';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
     EasyconfigModule.register({ path: './.env' }),
     TypeOrmModule.forFeature([User]),
+    PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
-      secretOrPrivateKey: 'secret12356789',
+      secretOrPrivateKey: process.env.JWT_SECRET,
     }),
   ],
   providers: [UsersService, AuthService, JwtStrategy],
