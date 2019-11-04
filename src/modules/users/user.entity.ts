@@ -18,6 +18,7 @@ export class User {
   @Column('character varying', {
     nullable: false,
     name: 'email',
+    unique: true,
   })
   email: string;
 

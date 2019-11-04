@@ -17,7 +17,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "@nestjs/common": "^6.7.2",
@@ -34,6 +35,7 @@
     "bcrypt": "^3.0.6",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.10.2",
+    "dotenv": "^8.2.0",
     "fastify-swagger": "2.4.0",
     "mysql": "^2.17.1",
     "nestjs-easyconfig": "^1.5.1",
