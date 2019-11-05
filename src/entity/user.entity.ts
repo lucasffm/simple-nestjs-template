@@ -11,41 +11,22 @@ import { Role } from './role.entity';
 
 @Entity('users')
 export class User {
-  @PrimaryGeneratedColumn({
-    type: 'bigint',
-    name: 'id',
-  })
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-  @Column('character varying', {
-    nullable: false,
-    name: 'name',
-  })
+  @Column()
   name: string;
 
-  @Column('character varying', {
-    nullable: false,
-    name: 'email',
-    unique: true,
-  })
+  @Column()
   email: string;
 
-  @Column('character varying', {
-    nullable: false,
-    name: 'password',
-  })
+  @Column()
   password: string;
 
-  @Column('character varying', {
-    nullable: false,
-    name: 'age',
-  })
+  @Column()
   age: string;
 
-  @Column('character varying', {
-    nullable: true,
-    name: 'phone',
-  })
+  @Column()
   phone: string | null;
 
   @ManyToMany(() => Role, role => role.users)
