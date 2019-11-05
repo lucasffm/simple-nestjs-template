@@ -18,6 +18,8 @@ async function bootstrap() {
     .setDescription('Sample API with NestJS')
     .setVersion('0.1')
     .setBasePath('v1/api')
+    .addTag('users')
+    .addTag('auth')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('v1/api/docs', app, document);

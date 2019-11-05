@@ -1,4 +1,4 @@
-import { Injectable, HttpException } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { compare, compareSync } from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
@@ -17,11 +17,14 @@ export class AuthService {
       where: { email: userInfo.email },
     });
     if (!user) {
-      return { status: 404 };
+      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
     }
     const passHash = compareSync(userInfo.password, user.password);
     if (!passHash) {
-      return { status: 401 };
+      throw new HttpException(
+        "password don't match with email",
+        HttpStatus.UNAUTHORIZED,
+      );
     }
     let payload = `${user.name}${user.id}`;
     const accessToken = this.jwtService.sign(payload);
@@ -30,7 +33,6 @@ export class AuthService {
       expires_in: 6000,
       access_token: accessToken,
       user_id: user.id,
-      status: 200,
     };
   }
 }
