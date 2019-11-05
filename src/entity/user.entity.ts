@@ -5,11 +5,13 @@ import {
   BeforeInsert,
   ManyToMany,
   JoinTable,
+  Unique,
 } from 'typeorm';
 import { hashSync } from 'bcrypt';
 import { Role } from './role.entity';
 
 @Entity('users')
+@Unique(['email'])
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
