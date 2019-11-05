@@ -18,6 +18,7 @@ async function bootstrap() {
     .setDescription('Sample API with NestJS')
     .setVersion('0.1')
     .setBasePath('v1/api')
+    .addBearerAuth()
     .addTag('users')
     .addTag('auth')
     .build();

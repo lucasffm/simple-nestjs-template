@@ -3,7 +3,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { Crud } from '@nestjsx/crud';
 import { UsersService } from './users.service';
 import { User } from './user.entity';
-import { ApiUseTags } from '@nestjs/swagger';
+import { ApiUseTags, ApiBearerAuth } from '@nestjs/swagger';
 
 @Crud({
   model: { type: User },
@@ -14,6 +14,7 @@ import { ApiUseTags } from '@nestjs/swagger';
   },
 })
 @ApiUseTags('users')
+@ApiBearerAuth()
 @Controller('users')
 export class UsersController {
   constructor(private service: UsersService) {}
