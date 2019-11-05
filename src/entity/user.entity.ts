@@ -1,5 +1,13 @@
-import { Column, PrimaryGeneratedColumn, Entity, BeforeInsert } from 'typeorm';
+import {
+  Column,
+  PrimaryGeneratedColumn,
+  Entity,
+  BeforeInsert,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
 import { hashSync } from 'bcrypt';
+import { Role } from './role.entity';
 
 @Entity('users')
 export class User {
@@ -39,6 +47,14 @@ export class User {
     name: 'phone',
   })
   phone: string | null;
+
+  @ManyToMany(() => Role, role => role.users)
+  @JoinTable({
+    name: 'user_roles',
+    joinColumn: { name: 'user_id', referencedColumnName: 'id' },
+    inverseJoinColumn: { name: 'role_id', referencedColumnName: 'id' },
+  })
+  roles: Role[];
 
   @BeforeInsert()
   hashPassword() {

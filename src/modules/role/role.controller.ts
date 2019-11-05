@@ -2,7 +2,7 @@ import { Controller, UseGuards } from '@nestjs/common';
 import { Crud } from '@nestjsx/crud';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiUseTags, ApiBearerAuth } from '@nestjs/swagger';
-import { Role } from './role.entity';
+import { Role } from '../../entity/role.entity';
 import { RoleService } from './role.service';
 
 @Crud({

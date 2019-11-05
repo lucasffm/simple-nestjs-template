@@ -4,6 +4,7 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
+import 'reflect-metadata';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -21,6 +22,7 @@ async function bootstrap() {
     .addBearerAuth()
     .addTag('users')
     .addTag('auth')
+    .addTag('roles')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('v1/api/docs', app, document);
