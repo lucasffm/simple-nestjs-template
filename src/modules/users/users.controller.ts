@@ -4,7 +4,10 @@ import { Crud } from '@nestjsx/crud';
 import { UsersService } from './users.service';
 import { User } from '../../entity/user.entity';
 import { ApiUseTags, ApiBearerAuth } from '@nestjs/swagger';
+import { RolesGuard } from '../../common/guards/roles.guard';
+import { Roles } from '../../common/decorators/roles.decorator';
 
+@Controller('users')
 @ApiUseTags('users')
 @ApiBearerAuth()
 @Crud({
@@ -18,11 +21,10 @@ import { ApiUseTags, ApiBearerAuth } from '@nestjs/swagger';
   },
   routes: {
     getManyBase: {
-      decorators: [UseGuards(AuthGuard('jwt'))],
+      decorators: [UseGuards(AuthGuard('jwt'), RolesGuard), Roles('Admin')],
     },
   },
 })
-@Controller('users')
 export class UsersController {
   constructor(private service: UsersService) {}
 }
