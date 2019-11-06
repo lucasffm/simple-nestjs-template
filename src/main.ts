@@ -7,6 +7,7 @@ import {
 } from '@nestjs/platform-fastify';
 import 'reflect-metadata';
 import { AppModule } from './app.module';
+import * as fs from "fs";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -26,6 +27,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
+  fs.writeFileSync('./client/swagger-spec.json', JSON.stringify(document));
   SwaggerModule.setup('v1/api/docs', app, document);
 
   await app.listen(process.env.PORT);

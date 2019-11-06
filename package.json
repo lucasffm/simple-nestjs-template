@@ -10,6 +10,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
+    "sdk:angular": "node_modules/.bin/ng-swagger-gen -i ./client/swagger-spec.json -o ./client/api.angular.js",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "tslint -p tsconfig.json -c tslint.json",
@@ -47,6 +48,7 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.3",
+    "swagger-ui-express": "^4.1.2",
     "typeorm": "^0.2.20"
   },
   "devDependencies": {
@@ -60,6 +62,7 @@
     "@types/passport-local": "^1.0.33",
     "@types/supertest": "^2.0.8",
     "jest": "^24.9.0",
+    "ng-swagger-gen": "^1.8.1",
     "prettier": "^1.18.2",
     "supertest": "^4.0.2",
     "ts-jest": "^24.1.0",
