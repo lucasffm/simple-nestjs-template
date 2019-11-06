@@ -37,6 +37,7 @@
     "class-validator": "^0.10.2",
     "dotenv": "^8.2.0",
     "fastify-swagger": "2.4.0",
+    "helmet": "^3.21.2",
     "mysql": "^2.17.1",
     "nestjs-easyconfig": "^1.5.1",
     "passport": "^0.4.0",

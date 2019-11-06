@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import * as helmet from 'helmet';
 import {
   FastifyAdapter,
   NestFastifyApplication,
@@ -14,16 +15,16 @@ async function bootstrap() {
   );
   app.setGlobalPrefix('v1/api');
 
+  app.use(helmet());
+
   const options = new DocumentBuilder()
     .setTitle('Sample API')
     .setDescription('Sample API with NestJS')
     .setVersion('0.1')
     .setBasePath('v1/api')
     .addBearerAuth()
-    .addTag('users')
-    .addTag('auth')
-    .addTag('roles')
     .build();
+
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('v1/api/docs', app, document);
 
