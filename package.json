@@ -50,7 +50,8 @@
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.3",
     "swagger-ui-express": "^4.1.2",
-    "typeorm": "^0.2.20"
+    "typeorm": "^0.2.20",
+    "swagger-js-codegen": "^1.13.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^6.9.0",
@@ -63,7 +64,6 @@
     "@types/passport-local": "^1.0.33",
     "@types/supertest": "^2.0.8",
     "jest": "^24.9.0",
-    "swagger-js-codegen": "^1.13.0",
     "ng-swagger-gen": "^1.8.1",
     "prettier": "^1.18.2",
     "supertest": "^4.0.2",

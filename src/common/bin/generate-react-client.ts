@@ -11,5 +11,6 @@ const reactjsSourceCode = CodeGen.getReactCode({
   className: 'Test',
   swagger: swagger,
 });
+
 const fileName = filePath + '/client-react.js';
 writeFileSync(fileName, reactjsSourceCode);
