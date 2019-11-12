@@ -1,5 +1,4 @@
 {
-  // Applications part
   "apps" : [{
     "name"      : "API",
     "script"    : "./current/dist/main.js",
@@ -14,17 +13,10 @@
     // Environment variables injected when starting with --env production
     // http://pm2.keymetrics.io/docs/usage/application-declaration/#switching-to-different-environments
     "env_production" : {
-      "NODE_ENV": "production",
-      "PORT": "3000",
-      "DB_HOST": "localhost",
-      "DB_PORT": "5432",
-      "DB_USERNAME": "nest",
-      "DB_PASSWORD": "zaq13edc",
-      "DB_NAME": "nest"
+      "NODE_ENV": "production"
     }
   }],
   // Deployment part
-  // Here you describe each environment
   "deploy" : {
     "production" : {
       "user" : "domotecnologia",
@@ -51,7 +43,7 @@
       "post-setup": "ls -la",
       // Commands to execute locally (on the same machine you deploy things)
       // Can be multiple commands separated by the character ";"
-      "pre-deploy-local" : "echo 'This is a local executed command'",
+      "pre-deploy-local" : "> .env && for s in $( cat ecosystem.json | strip-json-comments | jq -r '.apps[0].env|@text' | jq -r 'to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]' ); do echo $s >> .env.teste; done;",
       // Commands to be executed on the server after the repo has been cloned
       "post-deploy" : "npm install && npm run build && pm2 startOrRestart ecosystem.json --env production",
       // Environment variables that must be injected in all applications on this env
