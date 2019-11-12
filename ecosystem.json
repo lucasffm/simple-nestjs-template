@@ -43,7 +43,7 @@
       "post-setup": "ls -la",
       // Commands to execute locally (on the same machine you deploy things)
       // Can be multiple commands separated by the character ";"
-      "pre-deploy-local" : "> .env && for s in $( cat ecosystem.json | strip-json-comments | jq -r '.apps[0].env|@text' | jq -r 'to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]' ); do echo $s >> .env.teste; done;",
+      "pre-deploy-local" : "> .env && npm run make:env;",
       // Commands to be executed on the server after the repo has been cloned
       "post-deploy" : "npm install && npm run build && pm2 startOrRestart ecosystem.json --env production",
       // Environment variables that must be injected in all applications on this env
