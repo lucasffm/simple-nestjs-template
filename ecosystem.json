@@ -40,7 +40,7 @@
       // Commands / path to a script on the host machine
       // This will be executed on the host after cloning the repository
       // eg: placing configurations in the shared dir etc
-      "post-setup": "ls -la",
+      "post-setup": "",
       // Commands to execute locally (on the same machine you deploy things)
       // Can be multiple commands separated by the character ";"
       "pre-deploy-local" : "> .env && ./bin/make-env.sh;",
