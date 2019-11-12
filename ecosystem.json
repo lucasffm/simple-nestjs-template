@@ -14,7 +14,13 @@
     // Environment variables injected when starting with --env production
     // http://pm2.keymetrics.io/docs/usage/application-declaration/#switching-to-different-environments
     "env_production" : {
-      "NODE_ENV": "production"
+      "NODE_ENV": "production",
+      "PORT": "3000",
+      "DB_HOST": "localhost",
+      "DB_PORT": "5432",
+      "DB_USERNAME": "nest",
+      "DB_PASSWORD": "zaq13edc",
+      "DB_NAME": "nest"
     }
   }],
   // Deployment part
