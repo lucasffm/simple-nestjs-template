@@ -1,11 +1,7 @@
 {
   "apps" : [{
     "name"      : "API",
-    "script"    : "./main.js",
-    "cwd": "./current/dist",
-    "error_file": "./logs/app.err.log",
-    "out_file": "./logs/app.out.log",
-    "log_date_format": "YYYY-MM-DD HH:mm Z",
+    "script"    : "./current/dist/main.js",
     "env": {
       "PORT": "3000",
       "DB_HOST": "localhost",
