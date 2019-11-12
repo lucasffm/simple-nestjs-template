@@ -2,7 +2,7 @@
   // Applications part
   "apps" : [{
     "name"      : "API",
-    "script"    : "./dist/main.js",
+    "script"    : "./current/dist/main.js",
     "env": {
       "PORT": "3000",
       "DB_HOST": "localhost",
