@@ -1,7 +1,8 @@
 {
   "apps" : [{
     "name"      : "API",
-    "script"    : "./current/dist/main.js",
+    "cwd": "./current",
+    "script"    : "main.js",
     "env": {
       "PORT": "3000",
       "DB_HOST": "localhost",
