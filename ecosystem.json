@@ -1,15 +1,15 @@
 {
   "apps" : [{
     "name"      : "API",
-    "script"    : "./dist/main.js",
-    "cwd": "./current",
+    "script"    : "./current/dist/main.js",
     "env": {
       "PORT": "3000",
       "DB_HOST": "localhost",
       "DB_PORT": "5432",
       "DB_USERNAME": "nest",
       "DB_PASSWORD": "zaq13edc",
-      "DB_NAME": "nest"
+      "DB_NAME": "nest",
+      "JWT_SECRET": "nest"
     },
     // Environment variables injected when starting with --env production
     // http://pm2.keymetrics.io/docs/usage/application-declaration/#switching-to-different-environments
@@ -41,10 +41,10 @@
       // Commands / path to a script on the host machine
       // This will be executed on the host after cloning the repository
       // eg: placing configurations in the shared dir etc
-      "post-setup": "",
+      "post-setup": "ls -la",
       // Commands to execute locally (on the same machine you deploy things)
       // Can be multiple commands separated by the character ";"
-      "pre-deploy-local" : "> .env && ./bin/make-env.sh;",
+      "pre-deploy-local" : "> .env; npm run make:env;",
       // Commands to be executed on the server after the repo has been cloned
       "post-deploy" : "npm install && npm run build && pm2 startOrRestart ecosystem.json --env production",
       // Environment variables that must be injected in all applications on this env
