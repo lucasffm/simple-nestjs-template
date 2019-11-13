@@ -1,7 +1,7 @@
 {
   "apps" : [{
     "name"      : "API",
-    "cwd": "./current",
+    "cwd": "../current",
     "script"    : "main.js",
     "env": {
       "PORT": "3000",
