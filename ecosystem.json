@@ -44,7 +44,7 @@
       // eg: placing configurations in the shared dir etc
       // Commands to execute locally (on the same machine you deploy things)
       // Can be multiple commands separated by the character ";"
-      "pre-deploy-local" : "> .env; npm run make:env;",
+      "pre-deploy" : "> .env; npm run make:env;",
       // Commands to be executed on the server after the repo has been cloned
       "post-deploy" : "npm install && npm run build && pm2 startOrRestart ecosystem.json --env production",
       // Environment variables that must be injected in all applications on this env
