@@ -26,7 +26,7 @@ export class AuthService {
         HttpStatus.UNAUTHORIZED,
       );
     }
-    let payload = `${user.name}${user.id}`;
+    let payload = { user };
     const accessToken = this.jwtService.sign(payload);
 
     return {
