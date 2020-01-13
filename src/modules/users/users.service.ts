@@ -19,9 +19,8 @@ export class UsersService extends TypeOrmCrudService<User> {
       to: 'test@nestjs.com',
       from: 'noreply@nestjs.com',
       subject: 'Testing Nest Mailermodule with template ✔',
-      template: 'sample', // The `.pug` or `.hbs` extension is appended automatically.
+      template: 'sample',
       context: {
-        // Data to be sent to template engine.
         code: 'cf1a3f828287',
         username: 'john doe',
       },
