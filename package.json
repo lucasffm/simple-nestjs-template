@@ -6,11 +6,12 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "nest build",
+    "copy-templates": "cp -R src/common/templates dist/common/",
+    "build": "nest build && npm run copy-templates",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "make:env": "./bin/make-env.sh",
     "start": "nest start",
-    "start:dev": "nest start --watch",
+    "start:dev": "mkdir -p dist/common && npm run copy-templates && nest start --watch",
     "sdk:angular": "node_modules/bin/ng-swagger-gen -i ./client/swagger-spec.json -o ./client/api.angular.js",
     "sdk:react": "node dist/common/bin/generate-react-client.js",
     "start:debug": "nest start --debug --watch",
@@ -24,6 +25,7 @@
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
+    "@nest-modules/mailer": "^1.1.3",
     "@nestjs/common": "^6.10.14",
     "@nestjs/core": "^6.10.14",
     "@nestjs/jwt": "^6.1.1",
