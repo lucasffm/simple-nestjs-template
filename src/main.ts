@@ -1,19 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as helmet from 'helmet';
-import {
-  FastifyAdapter,
-  NestFastifyApplication,
-} from '@nestjs/platform-fastify';
+import { ExpressAdapter } from '@nestjs/platform-express';
 import 'reflect-metadata';
 import { AppModule } from './app.module';
-import * as fs from "fs";
+import * as fs from 'fs';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestFastifyApplication>(
-    AppModule,
-    new FastifyAdapter(),
-  );
+  const app = await NestFactory.create(AppModule, new ExpressAdapter());
   app.setGlobalPrefix('v1/api');
 
   app.use(helmet());

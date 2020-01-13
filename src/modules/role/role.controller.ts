@@ -1,7 +1,7 @@
 import { Controller, UseGuards } from '@nestjs/common';
 import { Crud } from '@nestjsx/crud';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiUseTags, ApiBearerAuth } from '@nestjs/swagger';
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { Role } from '../../entity/role.entity';
 import { RoleService } from './role.service';
 
@@ -14,7 +14,7 @@ import { RoleService } from './role.service';
   },
 })
 // Decorator for group routes by name in swagger
-@ApiUseTags('roles')
+@ApiTags('roles')
 // Decorator for send Authorization header in request
 @ApiBearerAuth()
 @Controller('roles')
