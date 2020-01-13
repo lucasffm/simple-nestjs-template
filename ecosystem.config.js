@@ -52,7 +52,7 @@ module.exports = {
       repo: REPO,
       ssh_options: 'StrictHostKeyChecking=no',
       path: TARGET_SERVER_APP_PATH,
-      'pre-deploy': 'rm yarn.lock || true &&  rm package-lock.json || true',
+      'pre-deploy': `rm yarn.lock || true &&  rm package-lock.json || true && echo ${TARGET_SERVER_HOST}`,
       'post-deploy':
         'env && node --version && npm config set scripts-prepend-node-path true && > .env && yarn run make:env && yarn install && yarn run build && yarn run migration:run && pm2 startOrRestart ecosystem.json --env production',
     },
