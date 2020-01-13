@@ -21,7 +21,7 @@ module.exports = {
       name: 'nestjs-sample',
       script: 'dist/main.js',
       env: {
-        NODE_ENV: 'development',
+        NODE_ENV: 'production',
       },
       env_production: {
         APP_NAME: 'Nestjs Boilerplate',
