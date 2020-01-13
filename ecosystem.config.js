@@ -29,7 +29,7 @@ module.exports = {
         NODE_ENV: 'production',
       },
       env_production: {
-        APP_NAME: 'Nestjs Boilerplate',
+        APP_NAME: 'nestjs-api',
         NODE_ENV: 'production',
         PORT: 4545,
         DB_HOST: 'localhost',
