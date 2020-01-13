@@ -1,4 +1,3 @@
-console.log('AQUIII');
 // Target server hostname or IP address
 const TARGET_SERVER_HOST = process.env.TARGET_SERVER_HOST
   ? process.env.TARGET_SERVER_HOST.trim()
@@ -11,6 +10,11 @@ const TARGET_SERVER_USER = process.env.TARGET_SERVER_USER
 const TARGET_SERVER_APP_PATH = `/www/${process.env.APP_NAME}`;
 // Your repository
 const REPO = 'git@gitlab.com:lucasffm/nestjs-api-template.git';
+console.log('AQUIII');
+console.log(TARGET_SERVER_HOST);
+console.log(TARGET_SERVER_USER);
+console.log(TARGET_SERVER_APP_PATH);
+console.log(REPO);
 
 module.exports = {
   /**
