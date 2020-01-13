@@ -1,3 +1,5 @@
+const dotenv = require('dotenv');
+dotenv.config();
 // Target server hostname or IP address
 const TARGET_SERVER_HOST = process.env.TARGET_SERVER_HOST
   ? process.env.TARGET_SERVER_HOST.trim()
