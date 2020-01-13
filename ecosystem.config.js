@@ -7,7 +7,7 @@ const TARGET_SERVER_USER = process.env.TARGET_SERVER_USER
   ? process.env.TARGET_SERVER_USER.trim()
   : '';
 // Target server application path
-const TARGET_SERVER_APP_PATH = `/www/app`;
+const TARGET_SERVER_APP_PATH = `/www/${process.env.APP_NAME}`;
 // Your repository
 const REPO = 'git@gitlab.com:lucasffm/nestjs-api-template.git';
 
@@ -24,6 +24,7 @@ module.exports = {
         NODE_ENV: 'development',
       },
       env_production: {
+        APP_NAME: 'Nestjs Boilerplate',
         NODE_ENV: 'production',
         PORT: 4545,
         DB_HOST: localhost,
