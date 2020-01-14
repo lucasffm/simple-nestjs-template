@@ -15,7 +15,7 @@
         "DB_PORT": 5432,
         "DB_USERNAME": "postgres",
         "DB_PASSWORD": "9asd78asd978",
-        "DB_NAME": "sample-nest",
+        "DB_NAME": "sample_nest",
         "JWT_SECRET": "as7d9a8sd79as8d7as9d",
         "MAIL_USER": "12f88fb18d4e38",
         "MAIL_PASS": "cf27a88d3022f9",
