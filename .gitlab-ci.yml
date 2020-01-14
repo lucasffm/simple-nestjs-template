@@ -17,9 +17,9 @@ deploy_prod:
     # - ssh -o StrictHostKeyChecking=no -T "root@$TARGET_SERVER_HOST"
     # Delploy
     - echo "Setup tagget server directories"
-    - pm2 deploy ecosystem.config.js production setup 2>&1 || true
+    - pm2 deploy ecosystem.json production setup 2>&1 || true
     - echo "make deploy"
-    - pm2 deploy ecosystem.config.js production
+    - pm2 deploy ecosystem.json production
   environment:
     name: deploying
   only:
