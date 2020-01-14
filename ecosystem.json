@@ -24,6 +24,7 @@
   ],
   "deploy": {
     "production": {
+      "key": "bin/id_rsa.pem",
       "user": "gitlab-runner",
       "host": "134.209.170.246",
       "ref": "origin/master",
