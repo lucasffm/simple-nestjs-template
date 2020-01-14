@@ -5,18 +5,16 @@ stages:
 
 deploy_prod:
   stage: deploy
-  before_script:
+  script:
+    - echo "====== Deploy to production server ======"
+    - chmod 400 bin/id_rsa.pem
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-  script:
-    - echo "====== Deploy to production server ======"
-    - whoami
     - sudo apt-get update && sudo apt-get upgrade
     - sudo apt-get install git openssh-client bash
-    - chmod 400 bin/id_rsa.pem
     # Deploy
     - echo "Setup tagget server directories"
     - pm2 deploy ecosystem.json production setup 2>&1 || true
