@@ -9,7 +9,7 @@ deploy_prod:
     - echo "====== Deploy to production server ======"
     - whoami
     - sudo apt-get update && sudo apt-get upgrade
-    - sudo apt-get install git openssh bash
+    - sudo apt-get install git openssh-client bash
     # Add target server`s secret key
     - mkdir ~/.ssh
     - echo $TARGET_SERVER_SECRET_KEY_BASE64 | base64 -d > ~/.ssh/id_rsa
