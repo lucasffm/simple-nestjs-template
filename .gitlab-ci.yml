@@ -5,17 +5,20 @@ stages:
 
 deploy_prod:
   stage: deploy
-  script:
+    script:
     - echo "====== Deploy to production server ======"
     - whoami
     - sudo apt-get update && sudo apt-get upgrade
     - sudo apt-get install git openssh-client bash
-    # Add target server`s secret key
-    - echo $TARGET_SERVER_SECRET_KEY_BASE64 | base64 -d > ~/.ssh/id_rsa
-    - chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
-    - echo "Test ssh connection"
-    - ssh -o StrictHostKeyChecking=no -T "gitlab-runner@$TARGET_SERVER_HOST"
-    # Delploy
+    # Install ssh-agent if not already installed, it is required by Docker.
+    # (change apt-get to yum if you use a CentOS-based image)
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    # Run ssh-agent (inside the build environment)
+    - eval $(ssh-agent -s)
+    # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    # Deploy
     - echo "Setup tagget server directories"
     - pm2 deploy ecosystem.json production setup 2>&1 || true
     - echo "make deploy"
