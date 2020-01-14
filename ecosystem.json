@@ -24,7 +24,6 @@
   ],
   "deploy": {
     "production": {
-      "key": "bin/lucas.pem",
       "user": "root",
       "host": "134.209.170.246",
       "ref": "origin/master",
