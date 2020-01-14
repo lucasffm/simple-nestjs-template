@@ -5,11 +5,8 @@
       "script": "dist/main.js",
       "cwd": "/www/nestjs-api/current",
       "env": {
-        "NODE_ENV": "production"
-      },
-      "env_production": {
-        "APP_NAME": "nestjs-api",
         "NODE_ENV": "production",
+        "APP_NAME": "nestjs-api",
         "PORT": 4545,
         "DB_HOST": "localhost",
         "DB_PORT": 5432,
@@ -20,6 +17,9 @@
         "MAIL_USER": "12f88fb18d4e38",
         "MAIL_PASS": "cf27a88d3022f9",
         "MAIL_HOST": "smtp.mailtrap.io"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
       }
     }
   ],
