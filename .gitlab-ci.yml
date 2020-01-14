@@ -16,7 +16,6 @@ deploy_prod:
     - whoami
     - sudo apt-get update && sudo apt-get upgrade
     - sudo apt-get install git openssh-client bash
-    - ssh-copy-id gitlab-runner@134.209.170.246
     - chmod 400 bin/id_rsa.pem
     # Deploy
     - echo "Setup tagget server directories"
