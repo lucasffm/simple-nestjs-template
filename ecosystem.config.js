@@ -33,7 +33,7 @@ module.exports = {
       path: '/www/nestjs-api',
       'pre-deploy': 'rm yarn.lock || true &&  rm package-lock.json || true',
       'post-deploy':
-        'env && node --version && npm config set scripts-prepend-node-path true && > .env && yarn run make:env && yarn install && yarn run build && yarn run migration:run && pm2 startOrRestart ecosystem.json --env production',
+        'yarn make:env && yarn install && yarn build && yarn migration:run && pm2 startOrRestart ecosystem.json --env production',
     },
   },
 };
