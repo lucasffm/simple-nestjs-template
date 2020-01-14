@@ -24,11 +24,12 @@ module.exports = {
   ],
   deploy: {
     production: {
+      key: 'bin/lucas.pem',
       user: 'gitlab-runner',
       host: '134.209.170.246',
       ref: 'origin/master',
       repo: 'git@gitlab.com:lucasffm/nestjs-api-template.git',
-      ssh_options: 'StrictHostKeyChecking=no',
+      ssh_options: ['StrictHostKeyChecking=no', 'PasswordAuthentication=no'],
       path: '/www/nestjs-api',
       'pre-deploy': 'rm yarn.lock || true &&  rm package-lock.json || true',
       'post-deploy':
