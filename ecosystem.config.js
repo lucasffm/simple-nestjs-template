@@ -25,7 +25,7 @@ module.exports = {
   deploy: {
     production: {
       key: 'bin/lucas.pem',
-      user: 'gitlab-runner',
+      user: 'root',
       host: '134.209.170.246',
       ref: 'origin/master',
       repo: 'git@gitlab.com:lucasffm/nestjs-api-template.git',
