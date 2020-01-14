@@ -1,8 +1,9 @@
 {
   "apps": [
     {
-      "name": "nestjs-example",
+      "name": "nestjs-api",
       "script": "dist/main.js",
+      "cwd": "/www/nestjs-api/current",
       "env": {
         "NODE_ENV": "production"
       },
@@ -29,7 +30,7 @@
       "host": "134.209.170.246",
       "ref": "origin/master",
       "repo": "git@gitlab.com:lucasffm/nestjs-api-template.git",
-      "ssh_options": "StrictHostKeyChecking=no",
+      "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/www/nestjs-api",
       "pre-deploy": "rm yarn.lock || true &&  rm package-lock.json || true",
       "post-deploy": "yarn make:env && yarn install && yarn build && yarn migration:run && pm2 startOrRestart ecosystem.json --env production"
