@@ -24,7 +24,7 @@ module.exports = {
   ],
   deploy: {
     production: {
-      key: 'bin/lucas.pem',
+      key: 'bin/id.pem',
       user: 'root',
       host: '134.209.170.246',
       ref: 'origin/master',
