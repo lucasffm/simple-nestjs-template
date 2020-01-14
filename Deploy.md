@@ -4,6 +4,7 @@
 
     curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
     sudo apt-get install gitlab-runner
+    sudo gitlab-runner register
 
 ## SSH Config:
  Generate SSH Key on Remote Server With user "gitlab-runner"
@@ -46,6 +47,3 @@ The rest of this article assumes you are running the docker command as a user in
 Let’s explore the docker command next.
 
 ## Disable direct push to branch master
-
-
-
