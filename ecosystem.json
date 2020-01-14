@@ -25,7 +25,7 @@
   "deploy": {
     "production": {
       "key": "bin/id_rsa.pem",
-      "user": "gitlab-runner",
+      "user": "root",
       "host": "134.209.170.246",
       "ref": "origin/master",
       "repo": "git@gitlab.com:lucasffm/nestjs-api-template.git",
