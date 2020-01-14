@@ -22,7 +22,13 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migration:generate": "typeorm migration:create -n ",
+    "migration:run": "typeorm migration:run",
+    "migration:revert": "typeorm migration:revert",
+    "seed:generate": "typeorm migration:create -c seed -n ",
+    "seed:run": "typeorm migration:run -c seed",
+    "seed:revert": "typeorm migration:revert -c seed"
   },
   "dependencies": {
     "@nest-modules/mailer": "^1.1.3",
