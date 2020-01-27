@@ -13,5 +13,3 @@ RUN apk --no-cache add --virtual builds-deps build-base python && yarn
 USER node
 
 COPY --chown=node:node . .
-
-EXPOSE 3000

@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
-    "copy-templates": "cp -R src/common/templates dist/common/",
+    "copy-templates": "cp -R src/common/templates dist/common/ || echo 'skip copying due to other thread'",
     "build": "nest build && npm run copy-templates",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "make:env": "./bin/make-env.sh",
