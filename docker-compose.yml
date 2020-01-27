@@ -15,7 +15,7 @@ services:
       - postgres
     command: >
       sh -c "yarn migration:run &&
-             pm2 start dist/main.js"
+             pm2-runtime dist/main.js"
     networks:
       - nestwork
   postgres:
