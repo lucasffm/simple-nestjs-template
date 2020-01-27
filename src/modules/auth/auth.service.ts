@@ -1,8 +1,11 @@
-import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
-import { compare, compareSync } from 'bcrypt';
+import {
+  Injectable,
+  UnauthorizedException,
+  NotFoundException,
+} from '@nestjs/common';
+import { compareSync } from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
-import { User } from '../../entity/user.entity';
 import { LoginDto } from './login.dto';
 
 @Injectable()
@@ -17,14 +20,11 @@ export class AuthService {
       where: { email: userInfo.email },
     });
     if (!user) {
-      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+      throw new NotFoundException('User not found');
     }
     const passHash = compareSync(userInfo.password, user.password);
     if (!passHash) {
-      throw new HttpException(
-        "password don't match with email",
-        HttpStatus.UNAUTHORIZED,
-      );
+      throw new UnauthorizedException("password don't match with email");
     }
     let payload = { user };
     const accessToken = this.jwtService.sign(payload);

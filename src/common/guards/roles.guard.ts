@@ -2,8 +2,7 @@ import {
   Injectable,
   CanActivate,
   ExecutionContext,
-  HttpStatus,
-  HttpException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 
@@ -23,10 +22,7 @@ export class RolesGuard implements CanActivate {
     if (user && user.roles && hasRole()) {
       return true;
     } else {
-      throw new HttpException(
-        'User does not have the required role',
-        HttpStatus.UNAUTHORIZED,
-      );
+      throw new UnauthorizedException('User does not have the required role');
     }
     return user && user.roles && hasRole();
   }

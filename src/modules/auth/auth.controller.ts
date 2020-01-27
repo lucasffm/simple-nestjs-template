@@ -10,6 +10,7 @@ export class AuthController {
   @ApiTags('auth')
   @Post('login')
   async login(@Body() user: LoginDto): Promise<any> {
+    console.log('AQUIII');
     return this.authService.login(user);
   }
 }
