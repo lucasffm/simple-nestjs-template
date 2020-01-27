@@ -11,7 +11,7 @@ deploy_prod:
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - sudo apt-get update && sudo apt-get upgrade
+    - sudo apt-get update && sudo apt-get upgrade -y
     - sudo apt-get install git openssh-client bash
     # Deploy
     - echo "Setup tagget server directories"
