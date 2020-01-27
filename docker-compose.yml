@@ -3,7 +3,6 @@ version: '3'
 services:
   nest-api:
     build: .
-    restart: always
     container_name: nest-api
     environment:
       - DB_HOST=postgres

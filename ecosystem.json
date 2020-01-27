@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "nestjs-api",
-      "script": "dist/main.js",
+      "script": "yarn start",
       "cwd": "/www/nestjs-api/current",
       "env": {
         "NODE_ENV": "production",
