@@ -14,6 +14,8 @@ RUN apk --no-cache add --virtual builds-deps build-base python && yarn
 
 USER node
 
+RUN sudo chown -R $USER:$(id -gn $USER) /client/*
+
 COPY --chown=node:node . .
 
 RUN yarn build
