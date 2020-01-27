@@ -12,9 +12,9 @@ RUN npm install pm2 -g
 
 RUN apk --no-cache add --virtual builds-deps build-base python && yarn
 
-USER node
+RUN chmod 400 -R node:node ./client/*
 
-RUN sudo chown -R $USER:$(id -gn $USER) /client/*
+USER node
 
 COPY --chown=node:node . .
 

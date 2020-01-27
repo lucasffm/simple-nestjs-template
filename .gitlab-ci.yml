@@ -11,8 +11,8 @@ deploy_prod:
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - sudo apt-get update && sudo apt-get upgrade -y || true
-    - sudo apt-get install git openssh-client bash -y || true
+    - sudo apt-get update && sudo apt-get upgrade -y
+    - sudo apt-get install git openssh-client bash -y
     # Deploy
     - echo "Setup tagget server directories"
     - pm2 deploy ecosystem.json production setup 2>&1 || true

@@ -17,9 +17,6 @@
         "MAIL_USER": "12f88fb18d4e38",
         "MAIL_PASS": "cf27a88d3022f9",
         "MAIL_HOST": "smtp.mailtrap.io"
-      },
-      "env_production": {
-        "NODE_ENV": "production"
       }
     }
   ],
