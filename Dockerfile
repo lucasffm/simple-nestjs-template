@@ -6,9 +6,9 @@ USER root
 
 RUN mkdir -p /node_modules && chown -R node:node /home/node/nestapi
 
-RUN apk --no-cache add --virtual builds-deps build-base python && yarn
-
 COPY package.json yarn.* ./
+
+RUN apk --no-cache add --virtual builds-deps build-base python && yarn
 
 USER node
 
