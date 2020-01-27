@@ -33,7 +33,7 @@
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/www/nestjs-api",
       "pre-deploy": "rm yarn.lock || true &&  rm package-lock.json || true",
-      "post-deploy": "yarn make:env && yarn install && yarn build && yarn migration:run && pm2 startOrRestart ecosystem.json --env production"
+      "post-deploy": "yarn make:env && docker-compose up"
     }
   }
 }
