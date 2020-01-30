@@ -3,7 +3,7 @@ version: '3'
 services:
   nest-api:
     build: .
-    container_name: nest-api
+    container_name: ${APP_NAME}
     environment:
       - DB_HOST=postgres
     volumes:

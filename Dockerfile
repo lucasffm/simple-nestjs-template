@@ -12,8 +12,6 @@ RUN npm install pm2 -g
 
 RUN apk --no-cache add --virtual builds-deps build-base python && yarn
 
-RUN chmod 777 -R /home/node/nestapi/client/*
-
 USER node
 
 COPY --chown=node:node . .
